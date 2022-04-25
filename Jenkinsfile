@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('git fetch') {
             steps {
-                git branch: "${params.branch}", credentialsId: '4991f864-6845-456a-90df-f0f62edcdc79', url: 'https://github.com/mailrahulsre/java-db-Login.git'
+                git branch: "${params.branch}", credentialsId: '4991f864-6845-456a-90df-f0f62edcdc79', url: 'https://github.com/Masthansur/java-db-Login.git'
             }
         }
          
@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package'
                 echo "deploying to ${DEPLOY_TO} Env " 
-                deploy adapters: [tomcat8(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.32.223:8080')], contextPath: 'login-release-branch', onFailure: false, war: '**/*.war'
+                deploy adapters: [tomcat8(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.29.247:8080')], contextPath: 'login-release-branch', onFailure: false, war: '**/*.war'
             }
         }
  
