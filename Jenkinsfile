@@ -17,7 +17,7 @@ pipeline {
     stages {
         stage('git fetch') {
             steps {
-                git branch: "${params.branch}", credentialsId: '4991f864-6845-456a-90df-f0f62edcdc79', url: 'https://github.com/Masthansur/java-db-Login.git'
+                git branch: "${params.branch}",  url: 'https://github.com/Masthansur/java-db-Login.git'
             }
         }
          
