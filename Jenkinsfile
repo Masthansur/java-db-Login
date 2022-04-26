@@ -28,7 +28,7 @@ pipeline {
             steps {
                 sh 'mvn -Dmaven.test.failure.ignore=true clean package'
                 echo "deploying to ${DEPLOY_TO} Env " 
-                deploy adapters: [tomcat8(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.29.247:8080')], contextPath: 'login-release-branch', onFailure: false, war: '**/*.war'
+                deploy adapters: [tomcat8(credentialsId: 'tomcat-cred', path: '', url: 'http://172.31.86.32:8080')], contextPath: 'login-release-branch', onFailure: false, war: '**/*.war'
             }
         }
  
